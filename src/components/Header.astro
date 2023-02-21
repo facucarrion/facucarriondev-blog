@@ -1,0 +1,56 @@
+---
+import { colors } from '../styles/vars'
+---
+
+<header class='header'>
+  <a
+    href='/'
+    class='header__wrapper'
+  >
+    <img
+      class='header__img'
+      src='/img/facucarriondev.png'
+      alt='Facucarrion Dev'
+    />
+    <h2 class='header__title'>
+      Facu<span class='header__title--decorated'>.blog</span>
+    </h2>
+  </a>
+</header>
+
+<style type='text/sass' define:vars={colors}>
+  .header {
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .header__wrapper {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    transition: 0.3s ease;
+  }
+
+  .header__wrapper:hover {
+    transform: scale(1.05);
+  }
+
+  .header__img {
+    height: 4.5rem;
+  }
+
+  .header__title {
+    font-size: 2.2rem;
+    color: var(--lightColor);
+    font-weight: 600;
+    text-decoration: none;
+    margin-right: 1rem;
+  }
+
+  .header__title--decorated {
+    color: var(--secondaryColor);
+  }
+</style>

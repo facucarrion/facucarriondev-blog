@@ -1,0 +1,57 @@
+---
+import Footer from '../components/Footer.astro'
+import Header from '../components/Header.astro'
+import { colors, background } from '../styles/vars.js'
+---
+
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta
+      http-equiv='X-UA-Compatible'
+      content='IE=edge'
+    />
+    <meta
+      name='viewport'
+      content='width=device-width, initial-scale=1.0'
+    />
+    <title>Facucarrion Dev</title>
+  </head>
+  <body>
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<style define:vars={{ ...colors, background }}>
+  html {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    background-color: var(--primaryColor);
+    background-image: var(--background);
+  }
+
+  body {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  body::before {
+    content: '';
+    background: #ffe1342a;
+    filter: blur(100px);
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    left: -25px;
+    top: 100px;
+    z-index: -1;
+  }
+</style>

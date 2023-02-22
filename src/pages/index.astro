@@ -1,8 +1,15 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
+const allPosts = await Astro.glob('./posts/*.md')
 import '../styles/global.css'
 ---
 
 <BaseLayout>
-  <h1>Astro</h1>
+  {
+    allPosts.map((post) => (
+      <a href={post.url}>
+        <p>{post.frontmatter.title}</p>
+      </a>
+    ))
+  }
 </BaseLayout>

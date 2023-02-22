@@ -1,5 +1,6 @@
 ---
 import { colors } from '../styles/vars'
+import SearchInput from './ui/SearchInput.astro'
 ---
 
 <header class='header'>
@@ -16,6 +17,7 @@ import { colors } from '../styles/vars'
       Facu<span class='header__title--decorated'>.blog</span>
     </h2>
   </a>
+  <SearchInput />
 </header>
 
 <style type='text/sass' define:vars={colors}>

@@ -1,0 +1,55 @@
+---
+import BaseLayout from './BaseLayout.astro'
+const { frontmatter } = Astro.props
+---
+
+<BaseLayout>
+  <p class='post__date'>{frontmatter.pubDate.slice(0, 10)}</p>
+  <h2 class='post__title'>{frontmatter.title}</h2>
+  <p class='post__description'>{frontmatter.description}</p>
+  <p>Written by: {frontmatter.author}</p>
+  <img
+    src={frontmatter.image.url}
+    width='300'
+    alt={frontmatter.image.alt}
+  />
+  <slot />
+  <div class='tags'>
+    {
+      frontmatter.tags.map((tag) => (
+        <p class='tag'>
+          <a href={`/tags/${tag}`}>{tag}</a>
+        </p>
+      ))
+    }
+  </div>
+</BaseLayout>
+
+<style>
+  p {
+    margin: 0;
+  }
+  .post__date {
+    font-size: 1.25rem;
+    margin: 0;
+  }
+
+  .post__title {
+    margin: 0;
+    margin-bottom: 0.5em;
+    font-size: 2.5rem;
+    line-height: 1em;
+  }
+
+  .post__description {
+    font-size: 1.25rem;
+    margin: 0;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    gap: 1rem;
+  }
+</style>

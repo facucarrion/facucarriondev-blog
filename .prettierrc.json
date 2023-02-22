@@ -5,5 +5,6 @@
   "quoteProps": "as-needed",
   "trailingComma": "none",
   "printWidth": 80,
-  "singleAttributePerLine": true
+  "singleAttributePerLine": true,
+  "arrowParens": "avoid"
 }

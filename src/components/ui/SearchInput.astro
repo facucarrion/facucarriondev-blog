@@ -1,13 +1,13 @@
 ---
 import { SearchIcon } from './Icons'
-import { colors } from '../../styles/vars'
+import { colors } from '../../constants/styles'
 ---
 
 <form class='search'>
   <input
     type='text'
     class='search__term'
-    placeholder='What are you looking for?'
+    placeholder='Search'
   />
   <button
     type='submit'
@@ -34,6 +34,10 @@ import { colors } from '../../styles/vars'
     outline: none;
     background-color: transparent;
     font-size: 1rem;
+  }
+
+  .search__term::placeholder {
+    color: var(--lightColor);
   }
 
   .search__term:focus {

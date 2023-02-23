@@ -1,51 +1,65 @@
 ---
-import { colors } from '../styles/vars'
+import { colors } from '../constants/styles'
+import { RouteIndicator } from './ui/RouteIndicator'
 import SearchInput from './ui/SearchInput.astro'
 ---
 
 <header class='header'>
-  <a
-    href='/'
-    class='header__wrapper'
-  >
-    <img
-      class='header__img'
-      src='/img/facucarriondev.png'
-      alt='Facucarrion Dev'
-    />
-    <h2 class='header__title'>
-      Facu<span class='header__title--decorated'>.blog</span>
-    </h2>
-  </a>
-  <SearchInput />
+  <div class='header__wrapper'>
+    <a
+      href='/'
+      class='header__homelink'
+    >
+      <img
+        class='header__img'
+        src='/img/facucarriondev.png'
+        alt='Facucarrion Dev'
+      />
+      <h2 class='header__title'>
+        Facu<span class='header__title--decorated'>.blog</span>
+      </h2>
+    </a>
+    <SearchInput />
+  </div>
+  <div class='header__wrapper'>
+    <RouteIndicator client:only />
+  </div>
 </header>
 
-<style type='text/sass' define:vars={colors}>
+<style is:global define:vars={colors}>
   .header {
     width: 100%;
-    height: 10vh;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    padding: 1rem 1rem 1rem 0;
   }
 
   .header__wrapper {
     display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .header__homelink {
+    display: flex;
     align-items: center;
     text-decoration: none;
     transition: 0.3s ease;
+    margin-bottom: 5px;
   }
 
-  .header__wrapper:hover {
+  .header__homelink:hover {
     transform: scale(1.05);
   }
 
   .header__img {
-    height: 4.5rem;
+    height: 4rem;
   }
 
   .header__title {
-    font-size: 2.2rem;
+    font-size: 2rem;
+    line-height: 1em;
     color: var(--lightColor);
     font-weight: 600;
     text-decoration: none;
@@ -54,5 +68,18 @@ import SearchInput from './ui/SearchInput.astro'
 
   .header__title--decorated {
     color: var(--secondaryColor);
+  }
+
+  .route {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-left: 1rem;
+  }
+
+  .route__separator {
+    font-weight: 700;
+    font-size: 1.3rem;
+    line-height: 1em;
   }
 </style>

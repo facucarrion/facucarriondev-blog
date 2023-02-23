@@ -1,0 +1,45 @@
+---
+import { langImagesPath } from '../constants/langsImagesPath'
+const { href, tag, title, description } = Astro.props
+---
+
+<a
+  class='post'
+  href={href}
+>
+  <img
+    src={langImagesPath[tag]}
+    alt={tag}
+    class='post__image'
+  />
+  <div class='post__content'>
+    <h3 class='post__title'>{title}</h3>
+    <p class='post__description'>{description}</p>
+  </div>
+</a>
+
+<style>
+  .post {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    border-radius: 5px;
+    background-color: #26262677;
+    text-decoration: none;
+    backdrop-filter: blur(5px);
+  }
+
+  .post__image {
+    height: 50px;
+    width: 50px;
+    margin-right: 1rem;
+  }
+
+  .post__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+</style>

@@ -1,15 +1,18 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
+import BlogPost from '../components/BlogPost.astro'
 const allPosts = await Astro.glob('./posts/*.md')
-import '../styles/global.css'
 ---
 
 <BaseLayout>
   {
-    allPosts.map((post) => (
-      <a href={post.url}>
-        <p>{post.frontmatter.title}</p>
-      </a>
+    allPosts.map(post => (
+      <BlogPost
+        href={post.url}
+        tag={post.frontmatter.tags[0]}
+        title={post.frontmatter.title}
+        description={post.frontmatter.description}
+      />
     ))
   }
 </BaseLayout>

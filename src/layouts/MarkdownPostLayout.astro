@@ -7,16 +7,17 @@ const { frontmatter } = Astro.props
   <p class='post__date'>{frontmatter.pubDate.slice(0, 10)}</p>
   <h2 class='post__title'>{frontmatter.title}</h2>
   <p class='post__description'>{frontmatter.description}</p>
-  <p>Written by: {frontmatter.author}</p>
   <img
     src={frontmatter.image.url}
-    width='300'
+    width='100%'
+    style={{ margin: '1rem 0' }}
     alt={frontmatter.image.alt}
   />
   <slot />
+  <p>Written by: {frontmatter.author}</p>
   <div class='tags'>
     {
-      frontmatter.tags.map((tag) => (
+      frontmatter.tags.map(tag => (
         <p class='tag'>
           <a href={`/tags/${tag}`}>{tag}</a>
         </p>

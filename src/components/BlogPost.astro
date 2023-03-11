@@ -31,10 +31,24 @@ const { href, tag, title, description } = Astro.props
     backdrop-filter: blur(5px);
   }
 
+  .post:hover {
+    background: #30303077;
+  }
+
+  .post:hover .post__image {
+    transform: scale(1.15);
+  }
+
+  .post:hover .post__title,
+  .post:hover .post__description {
+    text-decoration: underline;
+  }
+
   .post__image {
     height: 50px;
     width: 50px;
     margin-right: 1rem;
+    transition: transform 0.2s ease;
   }
 
   .post__content {
